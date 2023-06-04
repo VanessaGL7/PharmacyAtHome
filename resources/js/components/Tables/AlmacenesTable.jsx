@@ -32,7 +32,7 @@ function AlmacenesTable() {
     crossdomain: true
   };
   const getAllManagers = () => {
-    axios.get("http://localhost/web-development/public/api/get_warehouses", { config }).then(response => {
+    axios.get("http://localhost/PharmacyAtHome/public/api/get_warehouses", { config }).then(response => {
       console.log('response:');
       console.log(response);
       setGetValue(response.data);
@@ -42,7 +42,7 @@ function AlmacenesTable() {
     });
   }
   const deleteManager = (id) => {
-    axios.delete(`http://localhost/web-development/public/api/delete_warehouse/${id}`,{
+    axios.delete(`http://localhost/PharmacyAtHome/public/api/delete_warehouse/${id}`,{
       headers: {
           'Content-Type': 'multipart/form-data',
           'Accept': 'application/json',

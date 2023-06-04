@@ -26,7 +26,7 @@ const handleSubmit = (e) => {
   const formData = new FormData();
   formData.append("email", formValue.email)
   formData.append("password", formValue.password)
-  axios.post("http://localhost/web-development/public/api/show_test",
+  axios.post("http://localhost/PharmacyAtHome/public/api/show_test",
   formData,
   {headers: {'Content-Type': 'multipart/form-data', 'Accept': 'application/jason'}}
   ).then (response => {

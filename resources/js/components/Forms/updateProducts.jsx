@@ -39,7 +39,7 @@ function UpdateProducts() {
         formData.append("id_area", id_area)
 
         e.preventDefault()
-        axios.post(`http://localhost/web-development/public/api/update_product/${id}`,
+        axios.post(`http://localhost/PharmacyAtHome/public/api/update_product/${id}`,
             formData,
             {
                 headers: {
@@ -53,7 +53,7 @@ function UpdateProducts() {
             console.log(response);
             console.log(response.status)
             if (response.status == 200) {
-                navigate('/web-development/public/')
+                navigate('/PharmacyAtHome/public/')
             }
 
         }).catch(error => {
@@ -64,7 +64,7 @@ function UpdateProducts() {
 
     useEffect(() => {
         const getProductById = async () => {
-            const response = await axios.get(`http://localhost/web-development/public/api/show_product/${id}`)
+            const response = await axios.get(`http://localhost/PharmacyAtHome/public/api/show_product/${id}`)
             setKey(response.data.product_key)
             setDescription(response.data.product_description)
             setPrice(response.data.product_price)
@@ -84,7 +84,7 @@ function UpdateProducts() {
         getAllWarehouse()
     },[])
     const getAllWarehouse = () =>{
-        axios.get("http://localhost/web-development/public/api/get_warehouses")
+        axios.get("http://localhost/PharmacyAtHome/public/api/get_warehouses")
         .then(response => {
             console.log('response:');
             console.log(response);
@@ -101,7 +101,7 @@ function UpdateProducts() {
         getAllAreas()
     },[])
     const getAllAreas = () =>{
-        axios.get("http://localhost/web-development/public/api/get_areas")
+        axios.get("http://localhost/PharmacyAtHome/public/api/get_areas")
         .then(response => {
             console.log('response:');
             console.log(response);

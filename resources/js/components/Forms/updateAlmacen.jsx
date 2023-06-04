@@ -30,7 +30,7 @@ function UpdateAlmacen() {
         formData.append("id_manager", id_manager)
 
         e.preventDefault()
-        axios.post(`http://localhost/web-development/public/api/update_warehouse/${id}`,
+        axios.post(`http://localhost/PharmacyAtHome/public/api/update_warehouse/${id}`,
             formData,
             {
                 headers: {
@@ -44,7 +44,7 @@ function UpdateAlmacen() {
             console.log(response);
             console.log(response.status)
             if (response.status == 200) {
-                navigate('/web-development/public/almacenes')
+                navigate('/PharmacyAtHome/public/almacenes')
             }
 
         }).catch(error => {
@@ -55,7 +55,7 @@ function UpdateAlmacen() {
 
     useEffect(() => {
         const getWarehouseById = async () => {
-            const response = await axios.get(`http://localhost/web-development/public/api/show_warehouse/${id}`)
+            const response = await axios.get(`http://localhost/PharmacyAtHome/public/api/show_warehouse/${id}`)
             setName(response.data.warehouse_name)
             setDescription(response.data.warehouse_description)
             setAdress(response.data.warehouse_adress)
@@ -71,7 +71,7 @@ function UpdateAlmacen() {
         getAllManagers()
     },[])
     const getAllManagers = () =>{
-        axios.get("http://localhost/web-development/public/api/getwarehousemanager")
+        axios.get("http://localhost/PharmacyAtHome/public/api/getwarehousemanager")
         .then(response => {
             console.log('response:');
             console.log(response);

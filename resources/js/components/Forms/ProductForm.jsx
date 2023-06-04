@@ -61,7 +61,7 @@ function AlmacenesForm() {
             formData.append("product_image", formValue.product_image)
             formData.append("id_area", formValue.id_area)
             formData.append("id_warehouse", formValue.id_warehouse)
-            axios.post("http://localhost/web-development/public/api/create_product",
+            axios.post("http://localhost/PharmacyAtHome/public/api/create_product",
                 formData,
                 {
                     headers: {
@@ -75,7 +75,7 @@ function AlmacenesForm() {
                 console.log(response);
                 console.log(response.status)
                 if (response.status == 200) {
-                    navigate("/web-development/public");
+                    navigate("/PharmacyAtHome/public");
                 }
             }).catch(error => {
                 console.log(error);
@@ -90,7 +90,7 @@ function AlmacenesForm() {
     }, [])
 
     const getAllWarehouses = () => {
-        axios.get("http://localhost/web-development/public/api/get_warehouses").then(response => {
+        axios.get("http://localhost/PharmacyAtHome/public/api/get_warehouses").then(response => {
             console.log('response:');
             console.log(response);
 
@@ -106,7 +106,7 @@ function AlmacenesForm() {
     }, [])
 
     const getAllAreas = () => {
-        axios.get("http://localhost/web-development/public/api/get_areas").then(response => {
+        axios.get("http://localhost/PharmacyAtHome/public/api/get_areas").then(response => {
             console.log('response:');
             console.log(response);
 

@@ -29,7 +29,7 @@ function UpdateArea() {
         formData.append("id_warehouse", id_warehouse)
 
         e.preventDefault()
-        axios.post(`http://localhost/web-development/public/api/update_warehouse/${id}`,
+        axios.post(`http://localhost/PharmacyAtHome/public/api/update_warehouse/${id}`,
             formData,
             {
                 headers: {
@@ -43,7 +43,7 @@ function UpdateArea() {
             console.log(response);
             console.log(response.status)
             if (response.status == 200) {
-                navigate('/web-development/public/areas')
+                navigate('/PharmacyAtHome/public/areas')
             }
 
         }).catch(error => {
@@ -56,7 +56,7 @@ function UpdateArea() {
         getAllWarehouse()
     },[])
     const getAllWarehouse = () =>{
-        axios.get("http://localhost/web-development/public/api/get_warehouses")
+        axios.get("http://localhost/PharmacyAtHome/public/api/get_warehouses")
         .then(response => {
             console.log('response:');
             console.log(response);
@@ -69,7 +69,7 @@ function UpdateArea() {
     }
     useEffect(() => {
         const getAreaById = async () => {
-            const response = await axios.get(`http://localhost/web-development/public/api/show_area/${id}`)
+            const response = await axios.get(`http://localhost/PharmacyAtHome/public/api/show_area/${id}`)
             console.log("Hasta aqui si jala"+response.data)
             setName(response.data.area_name)
             setDescription(response.data.area_description)

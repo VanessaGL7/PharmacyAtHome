@@ -33,7 +33,7 @@ function JefesTable() {
     crossdomain: true
   };
   const getAllManagers = () => {
-    axios.get("http://localhost/web-development/public/api/getwarehousemanager", { config }).then(response => {
+    axios.get("http://localhost/PharmacyAtHome/public/api/getwarehousemanager", { config }).then(response => {
       console.log('response:');
       console.log(response);
       setGetValue(response.data);
@@ -44,7 +44,7 @@ function JefesTable() {
   }
 
   const deleteManager = (id) => {
-    axios.delete(`http://localhost/web-development/public/api/delete_manager/${id}`,{
+    axios.delete(`http://localhost/PharmacyAtHome/public/api/delete_manager/${id}`,{
       headers: {
           'Content-Type': 'multipart/form-data',
           'Accept': 'application/json',

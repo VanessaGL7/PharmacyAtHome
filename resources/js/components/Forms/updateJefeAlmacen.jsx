@@ -31,7 +31,7 @@ function UpdateJefeAlmacen() {
         formData.append("manager_address", manager_address)
 
         e.preventDefault()
-        axios.post(`http://localhost/web-development/public/api/update_manager/${id}`,
+        axios.post(`http://localhost/PharmacyAtHome/public/api/update_manager/${id}`,
             formData,
             {
                 headers: {
@@ -45,7 +45,7 @@ function UpdateJefeAlmacen() {
             console.log(response);
             console.log(response.status)
             if (response.status == 200) {
-                navigate('/web-development/public/jefes')
+                navigate('/PharmacyAtHome/public/jefes')
             }
 
         }).catch(error => {
@@ -56,7 +56,7 @@ function UpdateJefeAlmacen() {
 
     useEffect(() => {
         const getManagerById = async () => {
-            const response = await axios.get(`http://localhost/web-development/public/api/show_manager/${id}`)
+            const response = await axios.get(`http://localhost/PharmacyAtHome/public/api/show_manager/${id}`)
             setName(response.data.manager_name)
             setPhone(response.data.manager_phone)
             setMail(response.data.manager_mail)

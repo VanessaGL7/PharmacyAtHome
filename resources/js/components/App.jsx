@@ -24,14 +24,14 @@ import AuthProvider from './Auth/AuthContext';
 
 function App() {
   /*
-          <Route path='web-development/public/' element={<NavBar/>} />
-          <Route path='web-development/public/signin' element={<SignInScreen />} />*/
+          <Route path='PharmacyAtHome/public/' element={<NavBar/>} />
+          <Route path='PharmacyAtHome/public/signin' element={<SignInScreen />} />*/
   return (
     <div className='App'>
       <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path='web-development/public/' element={<NavBar />}>
+          <Route path='PharmacyAtHome/public/' element={<NavBar />}>
             <Route index element={<ProductTable />} />
             <Route path='login' element={<LoginScreen />} />
             <Route path='signin' element={<SignInScreen />} />

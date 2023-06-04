@@ -34,7 +34,7 @@ function AreasTable() {
     crossdomain: true
   };
   const getAllManagers = () => {
-    axios.get("http://localhost/web-development/public/api/get_areas", { config }).then(response => {
+    axios.get("http://localhost/PharmacyAtHome/public/api/get_areas", { config }).then(response => {
       console.log('response:');
       console.log(response);
       setGetValue(response.data);
@@ -55,7 +55,7 @@ function AreasTable() {
   }
   //METODO PARA ELIMINAR REGISTRO
   const deleteManager = (id) => {
-    axios.delete(`http://localhost/web-development/public/api/delete_area/${id}`,{
+    axios.delete(`http://localhost/PharmacyAtHome/public/api/delete_area/${id}`,{
       headers: {
           'Content-Type': 'multipart/form-data',
           'Accept': 'application/json',

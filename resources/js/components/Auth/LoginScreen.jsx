@@ -54,7 +54,7 @@ function LoginScreen() {
       const formData = new FormData();
       formData.append("email", formValue.email)
       formData.append("password", formValue.password)
-      axios.post("http://localhost/web-development/public/api/login",
+      axios.post("http://localhost/PharmacyAtHome/public/api/login",
         formData,
         {
           headers: {
@@ -71,7 +71,7 @@ function LoginScreen() {
           setToken(response.data.token);
           //console.log(response.data.user);
           console.log('Token'+response.data.token);
-          navigate("/web-development/public");
+          navigate("/PharmacyAtHome/public");
 
         }
       }).catch(error => {
@@ -102,7 +102,7 @@ function LoginScreen() {
               <Form.Control type="password" name="password" placeholder="Password" value={formValue.password} onChange={listener} />
             </Form.Group>
             <Button variant="primary" type="submit">Iniciar Sesion</Button>
-            <div className='text-center'><Form.Label className="mt-2">¿No tienes una cuenta? <Link to="/web-development/public/signin"><span className='text-primary' role="button">Registrate</span></Link></Form.Label></div>
+            <div className='text-center'><Form.Label className="mt-2">¿No tienes una cuenta? <Link to="/PharmacyAtHome/public/signin"><span className='text-primary' role="button">Registrate</span></Link></Form.Label></div>
           </Form>
         </Card.Body>
       </Card>

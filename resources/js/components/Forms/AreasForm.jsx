@@ -35,7 +35,7 @@ function AreasForm() {
         formData.append("area_name", formValue.area_name)
         formData.append("area_description", formValue.area_description)
         formData.append("id_warehouse", formValue.id_warehouse)
-        axios.post("http://localhost/web-development/public/api/create_area",
+        axios.post("http://localhost/PharmacyAtHome/public/api/create_area",
             formData,
             {
                 headers: {
@@ -49,7 +49,7 @@ function AreasForm() {
             console.log(response);
             console.log(response.status)
             if (response.status == 200) {
-                navigate("/web-development/public/areas");
+                navigate("/PharmacyAtHome/public/areas");
             }
         }).catch(error => {
             console.log(error);
@@ -63,7 +63,7 @@ function AreasForm() {
     }, [])
 
     const getAllWarehouses = () => {
-        axios.get("http://localhost/web-development/public/api/get_warehouses").then(response => {
+        axios.get("http://localhost/PharmacyAtHome/public/api/get_warehouses").then(response => {
             console.log('response:');
             console.log(response);
 

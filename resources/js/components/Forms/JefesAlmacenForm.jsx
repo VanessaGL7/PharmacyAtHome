@@ -54,7 +54,7 @@ function JefesForm() {
       formData.append("manager_phone", formValue.manager_phone)
       formData.append("manager_mail", formValue.manager_mail)
       formData.append("manager_address", formValue.manager_address)
-      axios.post("http://localhost/web-development/public/api/create_manager",
+      axios.post("http://localhost/PharmacyAtHome/public/api/create_manager",
         formData,
         {
           headers: {
@@ -68,7 +68,7 @@ function JefesForm() {
         console.log(response);
         console.log(response.status)
         if (response.status == 200) {
-          navigate("/web-development/public/jefes");
+          navigate("/PharmacyAtHome/public/jefes");
         }
       }).catch(error => {
         console.log(error);

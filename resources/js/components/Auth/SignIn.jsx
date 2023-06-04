@@ -73,13 +73,13 @@ function SignInScreen() {
 
       let data = {name, email, password}
 
-      axios.post("http://localhost/web-development/public/api/register", 
+      axios.post("http://localhost/PharmacyAtHome/public/api/register", 
         data,
         {headers})
         .then(response => {
           localStorage.setItem('token', response.data.token);
           console.log(response.data);
-          navigate("/web-development/public");
+          navigate("/PharmacyAtHome/public");
           setUserLogged(true)
           setToken(response.data.token);
 
@@ -116,7 +116,7 @@ function SignInScreen() {
       </Form.Group>
       <Button variant="primary" type="submit">Registrar</Button>
         <div className="text-center">
-            <Form.Label className="mt-2">¿Ya tienes una cuenta? <Link to="/web-development/public/"><span className='text-primary' role="button">Inicia sesión</span></Link></Form.Label>
+            <Form.Label className="mt-2">¿Ya tienes una cuenta? <Link to="/PharmacyAtHome/public/"><span className='text-primary' role="button">Inicia sesión</span></Link></Form.Label>
           </div>
     </Form>
       </Card.Body>

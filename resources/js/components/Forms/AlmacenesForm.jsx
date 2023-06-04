@@ -37,7 +37,7 @@ function AlmacenesForm() {
         formData.append("warehouse_description", formValue.warehouse_description)
         formData.append("warehouse_adress", formValue.warehouse_adress)
         formData.append("id_manager", formValue.id_manager)
-        axios.post("http://localhost/web-development/public/api/create_warehouse",
+        axios.post("http://localhost/PharmacyAtHome/public/api/create_warehouse",
             formData,
             {
                 headers: {
@@ -51,7 +51,7 @@ function AlmacenesForm() {
             console.log(response);
             console.log(response.status)
             if (response.status == 200) {
-                navigate("/web-development/public/almacenes");
+                navigate("/PharmacyAtHome/public/almacenes");
             }
         }).catch(error => {
             console.log(error);
@@ -65,7 +65,7 @@ function AlmacenesForm() {
     }, [])
 
     const getAllManagers = () => {
-        axios.get("http://localhost/web-development/public/api/getwarehousemanager").then(response => {
+        axios.get("http://localhost/PharmacyAtHome/public/api/getwarehousemanager").then(response => {
             console.log('response:');
             console.log(response);
 

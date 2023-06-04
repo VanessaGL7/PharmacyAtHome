@@ -16,14 +16,14 @@ function NavBar() {
   const logout = (e) => {
     e.preventDefault();
     localStorage.removeItem('token');
-    navigate('/web-development/public')
+    navigate('/PharmacyAtHome/public')
     setUserLogged(false);
   }
   return (
     <>
       <Navbar bg="light" expand="lg" style={{ boxShadow: '0px 5px 5px #D9D9D9' }}>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/web-development/public'><h3 className='py-1 fw-bold' style={{ color: '#0D6EFD' }}>Control de Inventarios</h3></Navbar.Brand>
+          <Navbar.Brand as={Link} to='/PharmacyAtHome/public'><h3 className='py-1 fw-bold' style={{ color: '#0D6EFD' }}>Control de Inventarios</h3></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
