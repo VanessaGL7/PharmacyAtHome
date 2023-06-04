@@ -6,7 +6,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\WarehouseManagerController;
 use App\Http\Controllers\WarehouseController;
-use App\Http\Controllers\AreaController;
+use App\Http\Controllers\MedicineTypeController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\PassportAuthController;
 
@@ -31,9 +31,9 @@ Route::middleware('auth:api')->group(function(){
     Route::delete('/delete_warehouse/{id}', [WarehouseController::class,'destroy']);
     Route::post('/update_warehouse/{id}', [WarehouseController::class, 'update']);
     //AREAS
-    Route::post('/create_area', [AreaController::class, 'store']);
-    Route::delete('/delete_area/{id}', [AreaController::class,'destroy']);
-    Route::post('/update_area/{id}', [AreaController::class, 'update']);
+    Route::post('/create_area', [MedicineTypeController::class, 'store']);
+    Route::delete('/delete_area/{id}', [MedicineTypeController::class,'destroy']);
+    Route::post('/update_area/{id}', [MedicineTypeController::class, 'update']);
     //PRODUCTS
     Route::post('/create_product', [ProductsController::class, 'store']);
     Route::delete('/delete_product/{id}', [ProductsController::class,'destroy']);
@@ -50,8 +50,8 @@ Route::get('/show_manager/{id}', [WarehouseManagerController::class,'show']);
 Route::get('/get_warehouses', [WarehouseController::class, 'index']);
 Route::get('/show_warehouse/{id}', [WarehouseController::class,'show']);
 //AREAS
-Route::get('/get_areas', [AreaController::class, 'index']);
-Route::get('/show_area/{id}', [AreaController::class,'show']);
+Route::get('/get_areas', [MedicineTypeController::class, 'index']);
+Route::get('/show_area/{id}', [MedicineTypeController::class,'show']);
 //PRODUCTS
 Route::get('/get_products', [ProductsController::class, 'index']);
 Route::get('/show_product/{id}', [ProductsController::class,'show']);

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Area;
+use App\Models\MedicineType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Rule;
+use Validator;
 
-class AreaController extends Controller
+class MedicineTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +17,8 @@ class AreaController extends Controller
      */
     public function index()
     {
-        $area=Area::all();
-        return $area;
+        $type=MedicineType::all();
+        return $type;
     }
 
     /**
@@ -36,32 +39,38 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        $area=new Area;
-        $area->area_name= $request->area_name;
-        $area->area_description= $request->area_description;
-        $area->id_warehouse= $request->id_warehouse;
-        $area->save();
+        $validator= Validator::make($request->all(),[
+            'type_name'=>'required|min:3',
+        ]);
+
+        if($validator->fails()){
+            return $validator->errors();
+        }
+
+        $type=new MedicineType;
+        $type->type_name= $request->type_name;
+        $type->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Area  $area
+     * @param  \App\Models\MedicineType  $type
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request)
     {
-        $area = Area::find($request->id);
-        return $area;
+        $type = MedicineType::find($request->id);
+        return $type;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Area  $area
+     * @param  \App\Models\MedicineType  $type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Area $area)
+    public function edit(MedicineType $type)
     {
         //
     }
@@ -70,24 +79,27 @@ class AreaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Area  $area
+     * @param  \App\Models\MedicineType  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Area $area)
+    public function update(Request $request, $id)
     {
-        //
+        $type=MedicineType::find($request->id);
+        $type->type_name=$request->input('type_name');
+        $type->save();
+        return $type;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Area  $area
+     * @param  \App\Models\MedicineType  $type
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Area::where("area_id", $id)->delete();
-        $area=Area::all();
-       return $area;
+        MedicineType::where("type_id", $id)->delete();
+        $type=MedicineType::all();
+        return $type;
     }
 }
