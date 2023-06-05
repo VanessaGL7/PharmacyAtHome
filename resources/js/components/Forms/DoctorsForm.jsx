@@ -12,7 +12,7 @@ import Alert from 'react-bootstrap/Alert';
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from '../Auth/AuthContext';
 
-function JefesForm() {
+function DoctorsForm() {
 
   const { token } = useContext(AuthContext);
   const { userLogged, setUserLogged } = useContext(AuthContext);
@@ -22,10 +22,11 @@ function JefesForm() {
   const navigate = useNavigate();
 
   const [formValue, setformValue] = useState({
-    manager_name: '',
-    manager_phone: '',
-    manager_mail: '',
-    manager_address: ''
+    doctor_name: '',
+    professional_license: '',
+    institution: '',
+    doctor_address: '',
+    phone: ''
   })
 
   const onChange = (e) => {
@@ -40,9 +41,9 @@ function JefesForm() {
     //VALIDACION
     e.preventDefault();
     setFormOk(true);
-    if (formValue.manager_name.trim() === "" || formValue.manager_phone.trim() === "" || formValue.manager_mail.trim() === ""
-      || formValue.manager_address.trim() === "") {
-      setTextError('Error, todos los campos son obligatorios');
+    if (formValue.doctor_name.trim() === "" || formValue.professional_license.trim() === "" || formValue.institution.trim() === ""
+      || formValue.doctor_address.trim() === "" || formValue.phone.trim() === "") {
+      setTextError('Error, fill in all the fields to continue');
       setFormOk(false);
       return;
     }
@@ -50,11 +51,12 @@ function JefesForm() {
     if (formOk) {
       if (e && e.preventDefault()) e.preventDefault();
       const formData = new FormData();
-      formData.append("manager_name", formValue.manager_name)
-      formData.append("manager_phone", formValue.manager_phone)
-      formData.append("manager_mail", formValue.manager_mail)
-      formData.append("manager_address", formValue.manager_address)
-      axios.post("http://localhost/PharmacyAtHome/public/api/create_manager",
+      formData.append("doctor_name", formValue.doctor_name)
+      formData.append("professional_license", formValue.professional_license)
+      formData.append("institution", formValue.institution)
+      formData.append("doctor_address", formValue.doctor_address)
+      formData.append("phone", formValue.phone)
+      axios.post("http://localhost/PharmacyAtHome/public/api/create_doctor",
         formData,
         {
           headers: {
@@ -68,7 +70,7 @@ function JefesForm() {
         console.log(response);
         console.log(response.status)
         if (response.status == 200) {
-          navigate("/PharmacyAtHome/public/jefes");
+          navigate("/PharmacyAtHome/public/doctors");
         }
       }).catch(error => {
         console.log(error);
@@ -84,29 +86,34 @@ function JefesForm() {
       {userLogged && (
       <Card style={{ width: '30rem' }}>
         <Card.Body>
-          <Card.Title className='fw-bold fs-3'>Registrar Jefe de Almacén</Card.Title>
+          <Card.Title className='fw-bold fs-3'>Register new doctor</Card.Title>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Label>Nombre</Form.Label>
-              <Form.Control type="text" placeholder="Nombre"
-                name="manager_name" value={formValue.manager_name} onChange={onChange} />
+              <Form.Label>Doctor name</Form.Label>
+              <Form.Control type="text" placeholder="Name"
+                name="doctor_name" value={formValue.doctor_name} onChange={onChange} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicTelephone">
-              <Form.Label>Telefono</Form.Label>
-              <Form.Control type="number" placeholder="Numero de telefono"
-                name="manager_phone" value={formValue.manager_phone} onChange={onChange} />
+              <Form.Label>Professional license</Form.Label>
+              <Form.Control type="number" placeholder="Professional license"
+                name="professional_license" value={formValue.professional_license} onChange={onChange} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Correo Electronico vigente"
-                name="manager_mail" value={formValue.manager_mail} onChange={onChange} />
+              <Form.Label>Institution</Form.Label>
+              <Form.Control type="text" placeholder="Institution"
+                name="institution" value={formValue.institution} onChange={onChange} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Domicilio</Form.Label>
+              <Form.Label>Doctor address</Form.Label>
               <Form.Control type="text" placeholder="Domicilio"
-                name="manager_address" value={formValue.manager_address} onChange={onChange} />
+                name="doctor_address" value={formValue.doctor_address} onChange={onChange} />
             </Form.Group>
-            <Button variant="primary" type="submit">Guardar registro
+            <Form.Group className="mb-3" controlId="formBasicTelephone">
+              <Form.Label>Phone</Form.Label>
+              <Form.Control type="number" placeholder="Doctor phone"
+                name="phone" value={formValue.phone} onChange={onChange} />
+            </Form.Group>
+            <Button variant="primary" type="submit">Save
             </Button>
           </Form>
         </Card.Body>
@@ -114,11 +121,11 @@ function JefesForm() {
       )}
       {!userLogged && (
                 <Row className='justify-content-center mt-5 text-center'>
-                    <h1>NO AUTORIZADO, INICIA SESION PARA ACCEDER A ESTA PAGINA</h1>
+                    <h1>NOT AUTHORIZED, LOGIN TO ACCESS THIS PAGE</h1>
                 </Row>
             )}
     </Row>
   );
 }
 
-export default JefesForm;
+export default DoctorsForm;

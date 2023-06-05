@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom";
 import { AuthContext } from '../Auth/AuthContext';
 
-function UpdateProducts() {
+function UpdatePrescription() {
 
     const navigate = useNavigate();
 

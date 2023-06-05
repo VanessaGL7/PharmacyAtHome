@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('prescription', function (Blueprint $table) {
-            $table->unsignedBigInteger('doctor_id');
-            $table->foreign('doctor_id')
-            ->references('doctor_id')->on('doctors')
+            $table->unsignedBigInteger('medicine_id');
+            $table->foreign('medicine_id')
+            ->references('medicine_id')->on('medicines')
             ->onDelete('cascade');
         });
     }
@@ -29,8 +29,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('prescription', function (Blueprint $table) {
-            $table->dropForeign('prescription_doctor_id_foreign');
-            $table->dropColumn('doctor_id');
+            $table->dropForeign('prescription_medicine_id_foreign');
+            $table->dropColumn('medicine_id');
         });
     }
 };

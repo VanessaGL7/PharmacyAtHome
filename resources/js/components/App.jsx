@@ -12,14 +12,14 @@ import AlmacenesTable from './Tables/AlmacenesTable';
 import JefesTable from './Tables/JefesAlmacenTable';
 import AreasTable from './Tables/AreasTable';
 //FORMS
-import JefesForm from './Forms/JefesAlmacenForm';
-import AreasForm from './Forms/AreasForm';
-import AlmacenesForm from './Forms/AlmacenesForm';
-import ProductForm from './Forms/ProductForm';
-import UpdateJefeAlmacen from './Forms/updateJefeAlmacen';
+import JefesForm from './Forms/DoctorsForm';
+import AreasForm from './Forms/MedicinesForm';
+import AlmacenesForm from './Forms/MedicineTypeForm';
+import ProductForm from './Forms/PrescriptionForm';
+import UpdateJefeAlmacen from './Forms/updateMedicineType';
 import UpdateAlmacen from './Forms/updateAlmacen';
-import UpdateProducts from './Forms/updateProducts';
-import UpdateAarea from './Forms/updateArea';
+import UpdateProducts from './Forms/updatePrescription';
+import UpdateAarea from './Forms/updateMedicines';
 import AuthProvider from './Auth/AuthContext';
 
 function App() {
